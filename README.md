@@ -13,11 +13,15 @@
 
   Key Result 5 : Selesai membuat autosave, dan checkpoint system
 
-  Key Result 6 : Selesai membuat hungry system (70 %)
+  Key Result 6 : Selesai membuat hungry system
+  
+  
   
   **2nd OKR Programming Division**
   
   Objective : Menggabungkan fitur fitur ke dalam scene utama dan memasukkan asset
+  
+  Key Result 0 : Revisi yang perlu di revisi
   
   Key Result 1 : semua fitur ada di 1 scene
   
