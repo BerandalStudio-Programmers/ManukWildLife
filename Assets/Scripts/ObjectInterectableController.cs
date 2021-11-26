@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectInterectableController : MonoBehaviour
 {
 
-    public bool interacted;
+    public bool interacted = true;
     private float xPosition;
 
     void Start()
