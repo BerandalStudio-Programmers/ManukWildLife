@@ -20,13 +20,10 @@ public class CharacterControllerObjectInteraction : MonoBehaviour
             interactableObject.GetComponent<ObjectInterectableController>().interacted = true;
 
             interactableObject.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
-
-            CharacterController2D.interacting = true;
         } else if (Input.GetKeyUp(KeyCode.E))
         {
             interactableObject.GetComponent<FixedJoint2D>().enabled = false;
             interactableObject.GetComponent<ObjectInterectableController>().interacted = false;
-            CharacterController2D.interacting = false;
         }
     }
 }

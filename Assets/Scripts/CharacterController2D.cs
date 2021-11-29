@@ -30,8 +30,6 @@ public class CharacterController2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
-    public static bool interacting;
-
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -71,7 +69,7 @@ public class CharacterController2D : MonoBehaviour
 			// If the character has a ceiling preventing them from standing up, keep them crouching
 			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
 			{
-				crouch = true;
+				//crouch = true;
 			}
 		}
 
@@ -137,10 +135,6 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Flip()
 	{
-        if (interacting == true)
-        {
-            return;
-        }
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
 
