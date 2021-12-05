@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         if(HungryController.hungry >= 50)
         {
 
-            runSpeed = 40f;
+            runSpeed = 30f;
 
         }
 
