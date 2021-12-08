@@ -19,8 +19,6 @@ public class HungryController : MonoBehaviour
     {
         hungrySlider.value = hungry;
 
-        Debug.Log(hungry);
-
         if (hungry >= 0)
         {
             if (Input.GetKey(KeyCode.W))

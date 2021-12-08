@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 jump = true;
 
-                animator.SetBool("IsJumping", true);
+                //animator.SetBool("IsJumping", true);
 
             }
             
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
                 gameOver.SetActive(false);
                 
-                animator.SetBool("Death", false);
+                //animator.SetBool("Death", false);
                 // Debug.Log("Back To Checkpoint");
 
             }
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
             isDeath = true;
 
-            animator.SetBool("Death", true);
+            //animator.SetBool("Death", true);
 
             Debug.Log("You're is death");
 
@@ -107,13 +107,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnLanding(){
 
-        animator.SetBool("IsJumping", false);
+        //animator.SetBool("IsJumping", false);
 
     }
 
     public void OnCrouching(bool isCrouching){
 
-        animator.SetBool("IsCrouching", isCrouching); 
+        //animator.SetBool("IsCrouching", isCrouching); 
 
     }
 
@@ -141,21 +141,20 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    //create death feature
    void OnCollisionEnter2D(Collision2D other)
    {
        if (other.gameObject.GetComponent<Rigidbody2D>() == null) return;
        
         if (other.gameObject.tag == "Enemy")
         {
-            
+        
             gameOver.SetActive(true);
 
             horizontalMove = 0;
 
             isDeath = true;
 
-            animator.SetBool("Death", true);
+            //animator.SetBool("Death", true);
 
             Debug.Log("You're is death");
             
@@ -163,12 +162,28 @@ public class PlayerMovement : MonoBehaviour
 
    }
 
-    //respawn player
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Checkpoint")
         {
             respawnCheckpoint = other.transform.position;
+        }
+        
+        if (other.tag == "Enemy")
+        {
+            gameOver.SetActive(true);
+            horizontalMove = 0;
+            isDeath = true;
+            //animator.SetBool("Death", true);
+            print("Implaed");
+        }
+
+        if (other.tag == "Water")
+        {
+            gameOver.SetActive(true);
+            horizontalMove = 0;
+            isDeath = true;
+            print("Drowned");
         }
 
     }
