@@ -6,10 +6,7 @@ public class ObjectInterectableController : MonoBehaviour
 {
 
     public bool interacted;
-<<<<<<< Updated upstream
-=======
     public bool rolling;
->>>>>>> Stashed changes
     private float xPosition;
     
     void Start()

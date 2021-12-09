@@ -28,12 +28,8 @@ public class CharacterControllerObjectInteraction : MonoBehaviour
         } else if (Input.GetKeyUp(KeyCode.E))
         {
             interactableObject.GetComponent<FixedJoint2D>().enabled = false;
-<<<<<<< Updated upstream
-            interactableObject.GetComponent<ObjectInterectableController>().interacted = false;
-=======
             if (interactableObject.GetComponent<ObjectInterectableController>().rolling == false)
                 interactableObject.GetComponent<ObjectInterectableController>().interacted = false;
->>>>>>> Stashed changes
         }
     }
 }

@@ -1,7 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< Updated upstream
-=======
 --- !u!58 &8230910952206097837
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18,7 +16,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.6}
   serializedVersion: 2
   m_Radius: 10.08
->>>>>>> Stashed changes
 --- !u!1 &1327388052695277717
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,15 +108,9 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-<<<<<<< Updated upstream
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.2733307, y: -1.1012375}
-=======
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.2733307, y: -2.8509889}
->>>>>>> Stashed changes
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,11 +121,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-<<<<<<< Updated upstream
-  m_Size: {x: 15.809174, y: 4.804606}
-=======
   m_Size: {x: 15.809174, y: 8.304109}
->>>>>>> Stashed changes
   m_EdgeRadius: 0
 --- !u!50 &5276548430481963402
 Rigidbody2D:
@@ -157,8 +144,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1751156939661050067
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +528,6 @@ PolygonCollider2D:
       - {x: -0.099999994, y: -5.69}
       - {x: 0.02, y: -5.67}
       - {x: 0.22, y: -5.6299996}
->>>>>>> Stashed changes
 --- !u!1 &3906300851589022320
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,16 +541,10 @@ GameObject:
   - component: {fileID: 3906300851589022326}
   - component: {fileID: 5850757794446059822}
   - component: {fileID: 7103341731432531736}
-<<<<<<< Updated upstream
-  m_Layer: 0
-  m_Name: Water
-  m_TagString: Untagged
-=======
   - component: {fileID: 1612186731}
   m_Layer: 0
   m_Name: Water
   m_TagString: Water
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -705,11 +683,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3906300851589022320}
-<<<<<<< Updated upstream
-  m_BodyType: 0
-=======
   m_BodyType: 1
->>>>>>> Stashed changes
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -735,14 +709,6 @@ BuoyancyEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_SurfaceLevel: 0
-<<<<<<< Updated upstream
-  m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
-  m_FlowAngle: 45
-  m_FlowMagnitude: 10
-  m_FlowVariation: 10
-=======
   m_Density: 4
   m_LinearDrag: 5
   m_AngularDrag: 5
@@ -775,7 +741,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 32.067795, y: 1.9870405}
   m_EdgeRadius: 0
->>>>>>> Stashed changes
 --- !u!1 &3906300852373274016
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,10 +753,7 @@ GameObject:
   - component: {fileID: 3906300852373274020}
   - component: {fileID: 3906300852373274021}
   - component: {fileID: 3906300852373274022}
-<<<<<<< Updated upstream
-=======
   - component: {fileID: 356634901}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -1332,11 +1294,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 3906300852373274016}
   m_Enabled: 1
   m_Density: 1
-<<<<<<< Updated upstream
-  m_Material: {fileID: 6200000, guid: 4d1bb380835982445b55b90e5d9c4863, type: 2}
-=======
   m_Material: {fileID: 0}
->>>>>>> Stashed changes
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2879,8 +2837,6 @@ EdgeCollider2D:
   - {x: 116.55054, y: -8.07873}
   - {x: 116.93394, y: -8.07873}
   - {x: 116.94866, y: -8.07862}
-<<<<<<< Updated upstream
-=======
 --- !u!50 &356634901
 Rigidbody2D:
   serializedVersion: 4
@@ -2902,7 +2858,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
->>>>>>> Stashed changes
 --- !u!1 &3906300853056769976
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,12 +2892,9 @@ Transform:
   - {fileID: 313673062464529650}
   - {fileID: 7038695988025378269}
   - {fileID: 1867898353387285964}
-<<<<<<< Updated upstream
-=======
   - {fileID: 3101794788609698851}
   - {fileID: 115126711105817722}
   - {fileID: 5758690323475728280}
->>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2972,13 +2924,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3906300853235825170}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: 4.63, y: -1.66, z: 0.040392943}
-  m_LocalScale: {x: 3.532, y: 3.434, z: 1}
-=======
   m_LocalPosition: {x: 6.66, y: -1.76, z: 0.040392943}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
->>>>>>> Stashed changes
   m_Children: []
   m_Father: {fileID: 3906300853056769983}
   m_RootOrder: 2
@@ -3020,11 +2967,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< Updated upstream
-  m_Sprite: {fileID: 21300000, guid: e66ca2ab58f785a418b9a468c6a496ad, type: 3}
-=======
   m_Sprite: {fileID: 21300000, guid: b22d8f2456859164dba3fa0f23081511, type: 3}
->>>>>>> Stashed changes
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3048,30 +2991,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-<<<<<<< Updated upstream
-  m_Offset: {x: 0.016283639, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.16, y: 0.44}
-=======
   m_Offset: {x: 1.5835133, y: -0.32568145}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 24.01, y: 19.2}
->>>>>>> Stashed changes
     newSize: {x: 1.16, y: 0.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-<<<<<<< Updated upstream
-  m_Size: {x: 0.48982322, y: 0.44}
-=======
   m_Size: {x: 9.95863, y: 6.240522}
->>>>>>> Stashed changes
   m_EdgeRadius: 0
 --- !u!1 &7176131118442586519
 GameObject:
@@ -3099,13 +3030,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7176131118442586519}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: 77.32, y: -6.22, z: 0.040392943}
-  m_LocalScale: {x: 1, y: 0.27, z: 1}
-=======
   m_LocalPosition: {x: 76.42, y: -6.22, z: 0.040392943}
   m_LocalScale: {x: 0.91, y: 0.27, z: 1}
->>>>>>> Stashed changes
   m_Children: []
   m_Father: {fileID: 3906300853056769983}
   m_RootOrder: 4
@@ -3275,11 +3201,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-<<<<<<< Updated upstream
-  m_IsTrigger: 0
-=======
   m_IsTrigger: 1
->>>>>>> Stashed changes
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000019073486, y: -0.6704018}
@@ -3316,8 +3238,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &200243089700050047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3436,7 +3356,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 200243089700050047}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1001 &3207665626876483130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3504,8 +3423,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-=======
     - target: {fileID: 725591435544988623, guid: 3a65c6952b5e57747b1a026c28ce1f3a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3567,7 +3484,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7247326572859fb49ae4d3b0ff78b2b5,
         type: 3}
->>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a65c6952b5e57747b1a026c28ce1f3a, type: 3}
 --- !u!4 &7038695988025378269 stripped
