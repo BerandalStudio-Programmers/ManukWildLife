@@ -5,9 +5,10 @@ using UnityEngine;
 public class ObjectInterectableController : MonoBehaviour
 {
 
-    public bool interacted = true;
+    public bool interacted;
+    public bool rolling;
     private float xPosition;
-
+    
     void Start()
     {
         xPosition = transform.position.x;
@@ -15,6 +16,14 @@ public class ObjectInterectableController : MonoBehaviour
 
     void Update()
     {
+        if (rolling == false)
+        {
+            transform.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        } else
+        {
+            transform.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        }
+
         if (interacted == false)
         {
             transform.position = new Vector2(xPosition, transform.position.y);
