@@ -6,8 +6,12 @@ public class ObjectInterectableController : MonoBehaviour
 {
 
     public bool interacted;
+<<<<<<< Updated upstream
+=======
+    public bool rolling;
+>>>>>>> Stashed changes
     private float xPosition;
-
+    
     void Start()
     {
         xPosition = transform.position.x;
@@ -15,6 +19,14 @@ public class ObjectInterectableController : MonoBehaviour
 
     void Update()
     {
+        if (rolling == false)
+        {
+            transform.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        } else
+        {
+            transform.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        }
+
         if (interacted == false)
         {
             transform.position = new Vector2(xPosition, transform.position.y);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterControllerObjectInteraction : MonoBehaviour
 {
     public LayerMask objectMask;
+    public bool rigidBodyApplied;
     GameObject interactableObject;
 
     void Update()
@@ -18,12 +19,21 @@ public class CharacterControllerObjectInteraction : MonoBehaviour
 
             interactableObject.GetComponent<FixedJoint2D>().enabled = true;
             interactableObject.GetComponent<ObjectInterectableController>().interacted = true;
+            if (interactableObject.transform.name == "boulder")
+            {
+                interactableObject.GetComponent<ObjectInterectableController>().rolling = true;
+            }
 
             interactableObject.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
         } else if (Input.GetKeyUp(KeyCode.E))
         {
             interactableObject.GetComponent<FixedJoint2D>().enabled = false;
+<<<<<<< Updated upstream
             interactableObject.GetComponent<ObjectInterectableController>().interacted = false;
+=======
+            if (interactableObject.GetComponent<ObjectInterectableController>().rolling == false)
+                interactableObject.GetComponent<ObjectInterectableController>().interacted = false;
+>>>>>>> Stashed changes
         }
     }
 }
