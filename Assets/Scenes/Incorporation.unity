@@ -359,11 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225996847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: -9.53, y: -0.60663986, z: -10}
-=======
   m_LocalPosition: {x: -9.530001, y: -0.33, z: -10}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1144,11 +1140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072217339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: -9.53, y: -0.60663986, z: -10}
-=======
   m_LocalPosition: {x: -9.530001, y: -0.33, z: -10}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1812753221}
@@ -18494,9 +18486,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    - target: {fileID: 1771183499158593216, guid: 7d513bc2761b1004b9220f8cadeb894f,
-=======
     - target: {fileID: 2544547182156563757, guid: 7d513bc2761b1004b9220f8cadeb894f,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -18533,7 +18522,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2544547182156563747, guid: 7d513bc2761b1004b9220f8cadeb894f,
->>>>>>> Stashed changes
         type: 3}
       propertyPath: m_AirControl
       value: 1
@@ -18542,14 +18530,6 @@ PrefabInstance:
         type: 3}
       propertyPath: gameOver
       value: 
-<<<<<<< Updated upstream
-      objectReference: {fileID: 1290166083}
-    - target: {fileID: 1771183499158593220, guid: 7d513bc2761b1004b9220f8cadeb894f,
-        type: 3}
-      propertyPath: hungrySlider
-      value: 
-      objectReference: {fileID: 1033462259}
-=======
       objectReference: {fileID: 1920345386}
     - target: {fileID: 2544547182156563747, guid: 7d513bc2761b1004b9220f8cadeb894f,
         type: 3}
@@ -18652,7 +18632,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 85dbd18f5273c9a4f8e60b543350fe39,
         type: 3}
->>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d513bc2761b1004b9220f8cadeb894f, type: 3}
 --- !u!1001 &7683087164149556460
