@@ -5,39 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
-    public GameObject ButtonPanel;
+    public Animator loader;
 
-    public Animator Loader;
+    public float loaderTime = 1f;
 
-    public float LoaderTime = 1f;
-
-    public void SettingPanel(){
+    public void MainMenu()
+    {
 
         SceneManager.LoadScene(0);
 
-        Loader.SetBool("Start", false);
-
-        ButtonPanel.SetActive(true);
+        Time.timeScale = 1f;
         
     }
 
-    public void PlayLoader()
-    {
+    public void PlayGame(){
 
         StartCoroutine(FadeLoader(SceneManager.GetActiveScene().buildIndex + 1));
-        
 
     }
 
+    public void QuitGame(){
+
+        Application.Quit();
+        Debug.Log("Quit Game");
+
+    }
 
     IEnumerator FadeLoader(int SceneIndex)
     {
-        Loader.SetBool("Start", true);
+        loader.SetBool("Start", true);
 
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(SceneIndex);
 
     }
+
 
 }

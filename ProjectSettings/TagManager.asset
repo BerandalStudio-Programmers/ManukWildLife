@@ -7,6 +7,7 @@ TagManager:
   - Interactable
   - Enemy
   - Water
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - 
   - Interactable
-  - 
+  - Player
   - 
   - 
   - 
