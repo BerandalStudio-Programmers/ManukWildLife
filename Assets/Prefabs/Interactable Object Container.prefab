@@ -160,7 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c213044abd18fd84db028d2040c1c073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interacted: 0
+  interacted: 1
+  rolling: 1
 --- !u!1 &5561261995355558880
 GameObject:
   m_ObjectHideFlags: 0

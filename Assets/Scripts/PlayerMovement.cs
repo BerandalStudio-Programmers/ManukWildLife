@@ -28,10 +28,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isDeath)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-            
-
         }
 
         if(Input.GetButtonDown("Jump"))
@@ -39,25 +36,26 @@ public class PlayerMovement : MonoBehaviour
              if (!isDeath)
             {
                 jump = true;
-
                 //animator.SetBool("IsJumping", true);
-
             }
-            
-
         }
 
         if(Input.GetButtonDown("Crouch"))
         {
-           
             crouch = true;
-
         }
         else if(Input.GetButtonUp("Crouch"))
         {
-            
             crouch = false;
+        }
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            transform.GetComponent<SpriteRenderer>().sortingOrder = -1;
+        }
+        else if (Input.GetKeyUp(KeyCode.F))
+        {
+            transform.GetComponent<SpriteRenderer>().sortingOrder = 10;
         }
 
         // if(Input.GetButtonDown("Cancel"))
@@ -73,34 +71,22 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                
                 HungryController.hungry = 100f;
-
                 transform.position = respawnCheckpoint;
-
                 isDeath = false;
-
                 gameOver.SetActive(false);
-                
                 //animator.SetBool("Death", false);
                 // Debug.Log("Back To Checkpoint");
-
             }
         }
 
         if (HungryController.hungry <= 0)
         {
-            
             gameOver.SetActive(true);
-
             horizontalMove = 0;
-
             isDeath = true;
-
             //animator.SetBool("Death", true);
-
             Debug.Log("You're is death");
-
         }
 
     }
@@ -149,12 +135,8 @@ public class PlayerMovement : MonoBehaviour
         {
         
             gameOver.SetActive(true);
-
             horizontalMove = 0;
-
             isDeath = true;
-
-            //animator.SetBool("Death", true);
 
             Debug.Log("You're is death");
             
@@ -174,8 +156,8 @@ public class PlayerMovement : MonoBehaviour
             gameOver.SetActive(true);
             horizontalMove = 0;
             isDeath = true;
-            //animator.SetBool("Death", true);
-            print("Implaed");
+
+            print("Impaled");
         }
 
         if (other.tag == "Water")
@@ -183,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
             gameOver.SetActive(true);
             horizontalMove = 0;
             isDeath = true;
+
             print("Drowned");
         }
 
