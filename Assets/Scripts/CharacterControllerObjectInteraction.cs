@@ -19,6 +19,7 @@ public class CharacterControllerObjectInteraction : MonoBehaviour
 
             interactableObject.GetComponent<FixedJoint2D>().enabled = true;
             interactableObject.GetComponent<ObjectInterectableController>().interacted = true;
+            PlayerMovement.interacting = true;
             if (interactableObject.transform.name == "boulder")
             {
                 interactableObject.GetComponent<ObjectInterectableController>().rolling = true;
@@ -28,8 +29,10 @@ public class CharacterControllerObjectInteraction : MonoBehaviour
         } else if (Input.GetKeyUp(KeyCode.E))
         {
             interactableObject.GetComponent<FixedJoint2D>().enabled = false;
-            if (interactableObject.GetComponent<ObjectInterectableController>().rolling == false)
-                interactableObject.GetComponent<ObjectInterectableController>().interacted = false;
-        }
+            interactableObject.GetComponent<ObjectInterectableController>().interacted = false;
+            if (interactableObject.GetComponent<ObjectInterectableController>().rolling == true)
+                interactableObject.GetComponent<ObjectInterectableController>().rolling = false;
+            PlayerMovement.interacting = false;
+        }   
     }
 }

@@ -16,12 +16,19 @@ public class ObjectInterectableController : MonoBehaviour
 
     void Update()
     {
-        if (rolling == false)
+        if (rolling == true)
+        {
+            if (GetComponent<Rigidbody2D>().velocity.x > 0)
+            {
+                transform.Rotate(0, 0, -90f * Time.fixedDeltaTime);
+            } else
+            {
+                transform.Rotate(0, 0, 90f * Time.fixedDeltaTime);
+            }
+        }
+        else
         {
             transform.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        } else
-        {
-            transform.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         }
 
         if (interacted == false)

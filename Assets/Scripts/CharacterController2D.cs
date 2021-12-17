@@ -4,8 +4,8 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
-	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
-	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
+	[Range(0, 1)] [SerializeField] private float m_InteractingSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
+    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
@@ -27,9 +27,8 @@ public class CharacterController2D : MonoBehaviour
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
 
-	public BoolEvent OnCrouchEvent;
-	private bool m_wasCrouching = false;
-
+	public BoolEvent OnInteractingEvent;
+	private bool m_wasInteracting = false;
 
     private void Awake()
 	{
@@ -38,8 +37,8 @@ public class CharacterController2D : MonoBehaviour
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
 
-		if (OnCrouchEvent == null)
-			OnCrouchEvent = new BoolEvent();
+		if (OnInteractingEvent == null)
+			OnInteractingEvent = new BoolEvent();
 	}
 
     private void FixedUpdate()
@@ -61,48 +60,30 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool interacting, bool jump)
 	{
-		// If crouching, check to see if the character can stand up
-		if (!crouch)
-		{
-			// If the character has a ceiling preventing them from standing up, keep them crouching
-			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
-			{
-				//crouch = true;
-			}
-		}
-
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{
 
 			// If crouching
-			if (crouch)
+			if (interacting)
 			{
-				if (!m_wasCrouching)
+				if (!m_wasInteracting)
 				{
-					m_wasCrouching = true;
-					OnCrouchEvent.Invoke(true);
+					m_wasInteracting = true;
+					OnInteractingEvent.Invoke(true);
 				}
 
 				// Reduce the speed by the crouchSpeed multiplier
-				move *= m_CrouchSpeed;
-
-				// Disable one of the colliders when crouching
-				if (m_CrouchDisableCollider != null)
-					m_CrouchDisableCollider.enabled = false;
-			} else
+				move *= m_InteractingSpeed;
+			} 
+            else
 			{
-				// Enable the collider when not crouching
-				if (m_CrouchDisableCollider != null)
-					m_CrouchDisableCollider.enabled = true;
-
-				if (m_wasCrouching)
+				if (m_wasInteracting)
 				{
-					m_wasCrouching = false;
-					OnCrouchEvent.Invoke(false);
+					m_wasInteracting = false;
+					OnInteractingEvent.Invoke(false);
 				}
 			}
 
@@ -136,12 +117,15 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Flip()
 	{
-		// Switch the way the player is labelled as facing.
-		m_FacingRight = !m_FacingRight;
+        if (!m_wasInteracting)
+        {
+		    // Switch the way the player is labelled as facing.
+		    m_FacingRight = !m_FacingRight;
 
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		    // Multiply the player's x local scale by -1.
+		    Vector3 theScale = transform.localScale;
+		    theScale.x *= -1;
+		    transform.localScale = theScale;
+        }
 	}
 }

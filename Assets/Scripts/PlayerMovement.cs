@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject LandingCheck;
 
-    bool jump, crouch, isDeath, isJumping;
+    bool jump, isDeath, isJumping;
+
+    public static bool interacting;
 
     void Update()
     {   
@@ -46,15 +48,6 @@ public class PlayerMovement : MonoBehaviour
         if (isJumping)
         {
             OnLanding();            
-        }
-
-        if(Input.GetButtonDown("Crouch"))
-        {
-            crouch = true;
-        }
-        else if(Input.GetButtonUp("Crouch"))
-        {
-            crouch = false;
         }
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -120,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, interacting, jump);
 
         jump = false;
         
