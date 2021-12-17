@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &512177542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512177543}
+  m_Layer: 10
+  m_Name: LandingCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &512177543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512177542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.14, y: -3.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1771183499099554441}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1771183498981192497
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,6 +98,7 @@ Transform:
   m_Children:
   - {fileID: 1771183498981192496}
   - {fileID: 1771183500002429046}
+  - {fileID: 512177543}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -131,46 +162,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566cc0f00c4538b4dab65ef4a507b2c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 700
+  m_JumpForce: 500
   m_CrouchSpeed: 0.4
   m_MovementSmoothing: 0.05
-  m_AirControl: 0
+  m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 4294967295
   m_GroundCheck: {fileID: 1771183500002429046}
   m_CeilingCheck: {fileID: 1771183498981192496}
   m_CrouchDisableCollider: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1771183500666184609}
-        m_MethodName: OnLanding
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnCrouchEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1771183500666184609}
-        m_MethodName: OnCrouching
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1771183500666184609
@@ -190,6 +199,7 @@ MonoBehaviour:
   animator: {fileID: 1771183499158593217}
   runSpeed: 10
   respawnCheckpoint: {x: 0, y: 0, z: 0}
+  LandingCheck: {fileID: 512177542}
 --- !u!50 &1771183499158593221
 Rigidbody2D:
   serializedVersion: 4
@@ -224,7 +234,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.32368922, y: -2.433269}
+  m_Offset: {x: 0.32368922, y: -2.075145}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -235,7 +245,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1445193, y: 2.992525}
+  m_Size: {x: 4.1445193, y: 2.2762775}
   m_EdgeRadius: 0
 --- !u!58 &1771183499158593223
 CircleCollider2D:
@@ -287,6 +297,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 256
+  rigidBodyApplied: 0
 --- !u!114 &1771183499158593220
 MonoBehaviour:
   m_ObjectHideFlags: 0

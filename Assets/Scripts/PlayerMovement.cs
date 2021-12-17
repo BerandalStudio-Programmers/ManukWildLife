@@ -20,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalMove = 0f;
 
-    bool jump, crouch, isDeath;
+    public GameObject LandingCheck;
+
+    bool jump, crouch, isDeath, isJumping;
 
     void Update()
     {   
@@ -35,9 +37,15 @@ public class PlayerMovement : MonoBehaviour
         {
              if (!isDeath)
             {
+                animator.SetBool("IsJumping", true);
                 jump = true;
-                //animator.SetBool("IsJumping", true);
+                isJumping = true;
             }
+        }
+
+        if (isJumping)
+        {
+            OnLanding();            
         }
 
         if(Input.GetButtonDown("Crouch"))
@@ -93,7 +101,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnLanding(){
 
-        //animator.SetBool("IsJumping", false);
+        Physics2D.queriesStartInColliders = false;
+        RaycastHit2D landing = Physics2D.Raycast(LandingCheck.transform.position, Vector2.down, 0.5f);
+        if (isJumping && landing && GetComponent<Rigidbody2D>().velocity.y < 0)
+        {
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+        }
 
     }
 
