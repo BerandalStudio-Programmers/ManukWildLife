@@ -37,14 +37,14 @@ public class ObstacleSetManagerFive : MonoBehaviour
         {
             for (int i = 1; i <= 6; i++)
             {
-                transform.Find("grass (" + i + ")").gameObject.tag = "Enemy";
+                transform.Find("grass").gameObject.tag = "Enemy";
             }
         }
         else
         {
             for (int i = 1; i <= 6; i++)
             {
-                transform.Find("grass (" + i + ")").gameObject.tag = "Untagged";
+                transform.Find("grass").gameObject.tag = "Untagged";
             }
         }
     }
