@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public static bool interacting;
 
     public AudioSource walkSound;
+    public AudioSource dieSound;
+    public AudioSource jumpSound;
 
     SaveSystem playerPosData;
 
@@ -110,22 +112,22 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-   void OnCollisionEnter2D(Collision2D other)
-   {
-       if (other.gameObject.GetComponent<Rigidbody2D>() == null) return;
+//    void OnCollisionEnter2D(Collision2D other)
+//    {
+//        if (other.gameObject.GetComponent<Rigidbody2D>() == null) return;
        
-        if (other.gameObject.tag == "Enemy")
-        {
+//         if (other.gameObject.tag == "Enemy")
+//         {
         
-            gameOver.SetActive(true);
-            horizontalMove = 0;
-            isDeath = true;
-            animator.SetBool("Death", true);
-            Debug.Log("You're is death");
+//             gameOver.SetActive(true);
+//             horizontalMove = 0;
+//             isDeath = true;
+//             animator.SetBool("Death", true);
+//             Debug.Log("You're is death");
             
-        }
+//         }
 
-   }
+//    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -140,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
             horizontalMove = 0;
             isDeath = true;
             animator.SetBool("Death", true);
+            dieSound.Play();
             print("Impaled");
         }
 
@@ -149,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
             horizontalMove = 0;
             isDeath = true;
             animator.SetBool("Death", true);
+            dieSound.Play();
             print("Drowned");
         }
 
@@ -157,6 +161,14 @@ public class PlayerMovement : MonoBehaviour
     public void FootStep(){
 
         walkSound.Play();
+    }
+    public void DeathSound(){
+
+        
+    }
+    public void JumpSound(){
+
+        jumpSound.Play();
     }
 
 }
