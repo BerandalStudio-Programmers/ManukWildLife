@@ -2,7 +2,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class Sound{
-	public enum AudioTypes{effect, music}
+	public enum AudioTypes{tembakEffect, walkingEffect, lompatEffect, nangisEffect, hideEffect, matiEffect, burungEffect, missionSucceedEffect, menuMusic, gameplayMusic, clickEffect};
 	public AudioTypes audioType;
 	
 	[HideInInspector] public AudioSource source;
