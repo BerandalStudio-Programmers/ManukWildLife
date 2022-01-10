@@ -8,6 +8,8 @@ public class CharacterControllerObjectInteraction : MonoBehaviour
     public bool rigidBodyApplied;
     GameObject interactableObject;
 
+    public GameObject player;
+
     void Update()
     {
         Physics2D.queriesStartInColliders = false;
@@ -20,6 +22,9 @@ public class CharacterControllerObjectInteraction : MonoBehaviour
             interactableObject.GetComponent<FixedJoint2D>().enabled = true;
             interactableObject.GetComponent<ObjectInterectableController>().interacted = true;
             PlayerMovement.interacting = true;
+
+            player.GetComponent<Animator>().SetBool("Push", true);
+
             if (interactableObject.transform.name == "boulder")
             {
                 interactableObject.GetComponent<ObjectInterectableController>().rolling = true;
@@ -33,6 +38,9 @@ public class CharacterControllerObjectInteraction : MonoBehaviour
             if (interactableObject.GetComponent<ObjectInterectableController>().rolling == true)
                 interactableObject.GetComponent<ObjectInterectableController>().rolling = false;
             PlayerMovement.interacting = false;
+
+            player.GetComponent<Animator>().SetBool("Push", false);
+
         }   
     }
 }

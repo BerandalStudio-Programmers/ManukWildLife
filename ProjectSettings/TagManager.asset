@@ -7,6 +7,8 @@ TagManager:
   - Interactable
   - Enemy
   - Water
+  - Checkpoint
+  - Music
   layers:
   - Default
   - TransparentFX

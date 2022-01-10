@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController2D controller;
 
-    private HungryController hungryController;
-
     public GameObject gameOver;
 
     public Animator animator;
@@ -22,9 +20,21 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject LandingCheck;
 
-    bool jump, isDeath, isJumping;
+    bool jump, isDeath, isJumping, isMoving;
 
     public static bool interacting;
+
+    public AudioSource walkSound;
+
+    SaveSystem playerPosData;
+
+
+
+    private void Awake()
+    {
+        playerPosData = FindObjectOfType<SaveSystem>();
+        playerPosData.PlayerPosLoad();
+    }
 
     void Update()
     {   
@@ -59,37 +69,18 @@ public class PlayerMovement : MonoBehaviour
             transform.GetComponent<SpriteRenderer>().sortingOrder = 10;
         }
 
-        // if(Input.GetButtonDown("Cancel"))
-        // {
-
-        //     PlayerPrefs.SetInt("SavePosition", SceneManager.GetActiveScene().buildIndex);
-        //     SceneManager.LoadScene(0);
-        //     SaveSystem.SavePlayer(this);
-
-        // }
 
         if (isDeath)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                HungryController.hungry = 100f;
                 transform.position = respawnCheckpoint;
                 isDeath = false;
                 gameOver.SetActive(false);
-                //animator.SetBool("Death", false);
-                // Debug.Log("Back To Checkpoint");
+                animator.SetBool("Death", false);
             }
         }
-
-        if (HungryController.hungry <= 0)
-        {
-            gameOver.SetActive(true);
-            horizontalMove = 0;
-            isDeath = true;
-            //animator.SetBool("Death", true);
-            Debug.Log("You're is death");
-        }
-
+        
     }
 
     public void OnLanding(){
@@ -116,21 +107,6 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime, interacting, jump);
 
         jump = false;
-        
-        if (HungryController.hungry <= 50)
-        {
-                
-            runSpeed = 20f;
-
-        }
-
-        if(HungryController.hungry >= 50)
-        {
-
-            runSpeed = 30f;
-
-        }
-
 
     }
 
@@ -144,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             gameOver.SetActive(true);
             horizontalMove = 0;
             isDeath = true;
-
+            animator.SetBool("Death", true);
             Debug.Log("You're is death");
             
         }
@@ -163,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
             gameOver.SetActive(true);
             horizontalMove = 0;
             isDeath = true;
-
+            animator.SetBool("Death", true);
             print("Impaled");
         }
 
@@ -172,29 +148,15 @@ public class PlayerMovement : MonoBehaviour
             gameOver.SetActive(true);
             horizontalMove = 0;
             isDeath = true;
-
+            animator.SetBool("Death", true);
             print("Drowned");
         }
 
     }
 
-    public void SavePlayer(){
+    public void FootStep(){
 
-        SaveSystem.SavePlayer(this);
-
-    }
-
-    public void LoadPlayer(){
-        
-        SceneManager.LoadScene(PlayerPrefs.GetInt("SavePosition"));
-        PlayerData data =  SaveSystem.LoadPlayer();
-
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-        transform.position = position;
-        
+        walkSound.Play();
     }
 
 }

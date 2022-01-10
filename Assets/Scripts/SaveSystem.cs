@@ -1,49 +1,46 @@
-﻿using UnityEngine;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using UnityEngine.SceneManagement;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public static class SaveSystem
+public class SaveSystem : MonoBehaviour
 {
 
-    public static void SavePlayer(PlayerMovement player){
+    public GameObject player;
 
-        BinaryFormatter formatter = new BinaryFormatter();
+    private void Start()
+    {   
+        if(PlayerPrefs.GetInt("Saved") == 1 && PlayerPrefs.GetInt("TimeToLoad") == 1)
+        {
 
-        string path = Application.persistentDataPath + "/player.fun";
-        FileStream stream = new FileStream(path, FileMode.Create);
+            float pX = player.transform.position.x;
+            float pY = player.transform.position.y;
+            float pZ = player.transform.position.z;
 
-        PlayerData data = new PlayerData(player);
+            pX = PlayerPrefs.GetFloat("p_x");
+            pY = PlayerPrefs.GetFloat("p_y");
+            pZ = PlayerPrefs.GetFloat("p_z");
+            player.transform.position = new Vector3(pX, pY, pZ);
+            
+            PlayerPrefs.SetInt("TimeToLoad", 0);
+            PlayerPrefs.Save();
+        }
+    }
 
-        formatter.Serialize(stream, data);
-        stream.Close();
-        Debug.Log("Saved");
+    public void PlayerPosSave(){
+
+        PlayerPrefs.SetFloat("p_x", player.transform.position.x);
+        PlayerPrefs.SetFloat("p_y", player.transform.position.y);
+        PlayerPrefs.SetFloat("p_z", player.transform.position.z);
+        
+        PlayerPrefs.SetInt("Saved", 1);
+        PlayerPrefs.Save();
 
     }
 
-    public static PlayerData LoadPlayer(){
+    public void PlayerPosLoad(){
 
-        string path = Application.persistentDataPath + "/player.fun";
-
-        if (File.Exists(path))
-        {  
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            
-            Debug.Log("Loaded");
-            
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            stream.Close();
-
-            return data;
-            
-        }else{
-
-            Debug.LogError("Save is not al ready" + path);
-            return null;
-
-        }
+        PlayerPrefs.SetInt("TimeToLoad", 1);
+        PlayerPrefs.Save();
 
     }
 

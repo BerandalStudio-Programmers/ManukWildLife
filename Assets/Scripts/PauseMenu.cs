@@ -5,7 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour{
     public bool paused = false;
+
+	SaveSystem playerPosData;
+
 	public GameObject pauseMenuUI;
+
+	void Start()
+	{
+		playerPosData = FindObjectOfType<SaveSystem>();
+	}
+
 	void Update(){
 		if (Input.GetKeyDown(KeyCode.Escape)){
 			if(paused){
@@ -29,7 +38,8 @@ public class PauseMenu : MonoBehaviour{
 	}
 	public void LoadMenu(){
 		Time.timeScale = 1f;
-		SceneManager.LoadScene("Menu");
+		playerPosData.PlayerPosSave();
+		SceneManager.LoadScene("MainMenu");
 	}
 	public void QuitGame(){
 		Application.Quit();
