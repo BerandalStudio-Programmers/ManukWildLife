@@ -9,6 +9,8 @@ public class ButtonController : MonoBehaviour
 
     public float loaderTime = 1f;
 
+    public AudioSource clickAudio;
+
     public void MainMenu()
     {
 
@@ -50,6 +52,12 @@ public class ButtonController : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(SceneIndex);
+
+    }
+
+    public void Clicker(){
+
+        clickAudio.Play();
 
     }
 

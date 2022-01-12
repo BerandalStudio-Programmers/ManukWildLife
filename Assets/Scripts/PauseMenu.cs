@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour{
+
     public bool paused = false;
 
 	SaveSystem playerPosData;
 
 	public GameObject pauseMenuUI;
+
+	public AudioSource clickEffect;
 
 	void Start()
 	{
@@ -19,8 +22,10 @@ public class PauseMenu : MonoBehaviour{
 		if (Input.GetKeyDown(KeyCode.Escape)){
 			if(paused){
 				Resume();
+				clickEffect.Play();
 			}else{
 				Pause();
+				clickEffect.Play();
 			}
 		}
 	}
@@ -42,6 +47,15 @@ public class PauseMenu : MonoBehaviour{
 		SceneManager.LoadScene("MainMenu");
 	}
 	public void QuitGame(){
+		playerPosData.PlayerPosSave();
 		Application.Quit();
+		Debug.Log("Quit Game");
 	}
+
+	public void ClickEffect(){
+
+		clickEffect.Play();
+
+	}
+
 }
