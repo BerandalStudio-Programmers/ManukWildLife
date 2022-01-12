@@ -73,11 +73,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Ambient: 0.5
-    - _Bevel: 0.5
-    - _BevelClamp: 0
-    - _BevelOffset: 0
-    - _BevelRoundness: 0
-    - _BevelWidth: 0
+    - _Bevel: 0.567
+    - _BevelClamp: 0.364
+    - _BevelOffset: 0.202
+    - _BevelRoundness: 0.46
+    - _BevelWidth: 0.425
     - _BumpFace: 0
     - _BumpOutline: 0
     - _BumpScale: 1

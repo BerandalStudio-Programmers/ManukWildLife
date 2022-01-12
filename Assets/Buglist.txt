@@ -1,0 +1,9 @@
+Changes
+-Input jump diganti ke space
+-Tambahan tutorial UI code
+-Perbaiki simulasi batu menggelinding
+
+Bug
+-Beberapa nyangkut mid groundnya, kurang pas collidernya
+-Kameranya suka keluar2
+-Batu diakhir simulasinya kurang pas
